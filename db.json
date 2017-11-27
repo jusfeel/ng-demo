@@ -1,0 +1,17 @@
+{
+  "friends": [
+    {"name":"Joe"},
+    {"name":"Tim"},
+    {"name":"Jim"},
+    {"name":"Jane"},
+    {"name":"Anne"},
+    {"name":"Billy"},
+    {"name":"James"},
+    {"name":"Peter"}
+  ],
+  "countries": [
+    {"id": "usa", "name": "USA", "capitol": "Washington DC"},
+    {"id": "mexico", "name" :"Mexico", "capitol": "Mexico DF"},
+    {"id": "canada", "name": "Canada", "capitol": "Ottowa"}
+  ]
+}

@@ -1,0 +1,26 @@
+<h1>Reactive</h1>
+<div>
+  <p class="text-muted">
+  built into Rx - the .switchMap() operator does this - it's the same as .mergeMap() (aka .flatMap() ) except it will cancel any pending observables if a new one comes down the pipe.</p>
+  <p class="text-muted">
+  Ideally, all events/action/whatevers would start with an Observable, which would make the system fully reactive</p>
+</div>
+<div>
+  <div class="alert alert-info">Open Developer Tool>Network; Try 'slow 3G' network profile</div>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let country of countries | async">
+      {{country.name}} <button class="btn btn-default" (click)="activeCountry.next(country)">Select</button>
+    </li>
+  </ul>
+  <div *ngIf="activeCountry | async">
+    <h2>Active Country</h2>
+    {{ (activeCountry | async) | json}}
+    <div>
+     <h3>data</h3>
+     {{ (activeCountryData | async) | json}}
+   </div>
+ </div>
+</div>
+<hr/>
+<p class="text-muted">ReplaySubject emits to any observer all of the items that were emitted by the source Observable(s), regardless of when the observer subscribes.</p>
+<img class="img-responsive" src="http://reactivex.io/documentation/operators/images/S.ReplaySubject.png" />

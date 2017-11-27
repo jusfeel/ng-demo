@@ -1,0 +1,15 @@
+<h1>Observing Changes</h1>
+<p class="text-muted">
+  Input/Output follows parent and child. You can also piping data between any components via observable.
+</p>
+<p>
+  Subscribe to a component to get notified when data changed.
+</p>
+<div class="container">
+  <button class="btn btn-primary" (click)="somethingChanged('one')">One</button>
+  <button class="btn btn-primary" (click)="somethingChanged('two')">Two</button>
+  <button class="btn btn-primary" (click)="somethingChanged('three')">Three</button>
+  <button class="btn btn-primary" (click)="somethingChanged('four')">Four</button>
+</div>
+<hr/>
+<app-comp-one></app-comp-one>

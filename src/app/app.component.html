@@ -17,8 +17,49 @@
         <li routerLinkActive="active">
           <a routerLink="/form">Form</a>
         </li>
-        <li routerLinkActive="active">
-          <a routerLink="/observable">Observable</a>
+        <li class="dropdown" routerLinkActive="active">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            Rxjs/Observables <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li routerLinkActive="active">
+              <a routerLink="/observables/simple">Simple</a>
+            </li>
+            <li routerLinkActive="active">
+              <a routerLink="/observables/error-handling">Error Handling</a>
+            </li>
+            <li routerLinkActive="active">
+              <a routerLink="/observables/unsub">unsubscribe</a>
+            </li>
+            <li routerLinkActive="active">
+              <a routerLink="/observables/retry">retry</a>
+            </li>
+            <li routerLinkActive="active">
+              <a routerLink="/observables/retry-when">retryWhen</a>
+            </li>
+            <li routerLinkActive="active">
+              <a routerLink="/observables/rxjs-streams">Rxjs Streams</a>
+            </li>
+            <li routerLinkActive="active">
+              <a routerLink="/observables/rxjs-caching">Rxjs Caching</a>
+            </li>
+            <li routerLinkActive="active">
+              <a routerLink="/observables/reactive">Reactive</a>
+            </li>
+          </ul>
+        </li>
+        <li class="dropdown" routerLinkActive="active">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            Event Emitter <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li routerLinkActive="active">
+              <a routerLink="/event-emitter/input-output">Input & Output</a>
+            </li>
+            <li routerLinkActive="active">
+              <a routerLink="/event-emitter/observing-change">Observing Change</a>
+            </li>
+          </ul>
         </li>
       </ul>
     </div><!--/.nav-collapse -->

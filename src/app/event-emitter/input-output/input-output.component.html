@@ -1,0 +1,10 @@
+<h1>Input & Output</h1>
+<p class="text-muted">Open network tab to see how switchMap cancel the previous events</p>
+<div class="row">
+  <div class="col-sm-12">
+    <app-search-bar (searchResults)="results.next($event)"></app-search-bar>
+  </div>
+  <div class="col-sm-12">
+    <app-search-result [results]="results"></app-search-result>
+  </div>
+</div>
