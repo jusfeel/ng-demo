@@ -1,0 +1,24 @@
+<h1 [hidden]="addNewUserFormIsShown || addNewUserReactiveFormIsShown || editUserName != ''">Users</h1>
+
+<div class="text-right" [hidden]="addNewUserFormIsShown || addNewUserReactiveFormIsShown || editUserName != ''">
+  <button class="btn btn-primary" (click)="addNewUserFormIsShown = true">Add new user(template)</button>
+  <button class="btn btn-primary" (click)="addNewUserReactiveFormIsShown = true">Add new user(reactive)</button>
+  <div class="clearfix spacer"></div>
+</div>
+<div *ngIf="addNewUserFormIsShown">
+  <app-user-form (cancel)="addNewUserFormIsShown = false"></app-user-form>
+</div>
+<div *ngIf="addNewUserReactiveFormIsShown">
+  <app-user-form-reactive (cancel)="addNewUserReactiveFormIsShown = false"></app-user-form-reactive>
+</div>
+<div [class.list-group]="editUserName == ''"
+  *ngIf="addNewUserFormIsShown === false && addNewUserReactiveFormIsShown === false">
+  <ng-container *ngFor="let u of users">
+    <button class="list-group-item" (click)="editUserName = u.userName" *ngIf="editUserName == ''">
+        <app-user-view-simple [user]='u'></app-user-view-simple>
+    </button>
+    <div *ngIf="editUserName === u.userName">
+      <app-user-form [user]='u' (cancel)="editUserName = ''"></app-user-form>
+    </div>
+  </ng-container>
+</div>

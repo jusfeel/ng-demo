@@ -1,0 +1,111 @@
+<h1><span [innerHtml]="editMode ? 'Edit ' + user.userName : 'Add new user'"></span></h1>
+<div class="row">
+  <div class="col-md-4">
+    <h4 class="text-muted">Preview</h4>
+    <app-user-view-simple [user]="user"></app-user-view-simple>
+  </div>
+  <div class="col-md-8">
+    <form class="form-horizontal" (ngSubmit)="onSubmit()" #userForm="ngForm" novalidate>
+      <div class="form-group">
+        <label for="userName" class="col-sm-2 control-label">Username</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="userName" name="userName"
+            [disabled]="editMode"
+            [(ngModel)]="user.userName"
+            #userNameInput
+            #userNameField="ngModel"
+            minlength="2"
+            maxlength="24"
+            required
+            lettersNumbersOnly
+            usernameNotTaken />
+          <div *ngIf="userNameField.invalid && (userNameField.dirty && userNameField.touched)" class="alert alert-danger">
+            <div *ngIf="userNameField.errors && userNameField.errors.required">
+              username is required
+            </div>
+            <div *ngIf="userNameField.errors.lettersNumbersOnly">
+              username can only contain letters and numbers
+            </div>
+            <div *ngIf="userNameField.errors.usernameNotTaken">
+              username has been taken
+            </div>
+            <div *ngIf="userNameField.errors.minlength">
+              min length is 2
+            </div>
+            <div *ngIf="userNameField.errors.maxlength">
+              max length is 24
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="firstName" class="col-sm-2 control-label">First Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="user.firstName"
+          #firstNameField="ngModel"
+          required />
+          <div *ngIf="firstNameField.invalid && (firstNameField.dirty && firstNameField.touched)" class="alert alert-danger">
+            <div *ngIf="firstNameField.errors && firstNameField.errors.required">
+              first name is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="lastName" class="col-sm-2 control-label">Last Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="user.lastName"
+            #lastNameField="ngModel"
+            required />
+          <div *ngIf="lastNameField.invalid && (lastNameField.dirty && lastNameField.touched)" class="alert alert-danger">
+            <div *ngIf="lastNameField.errors && lastNameField.errors.required">
+              last name is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <h4>Address</h4>
+      <div class="form-group">
+        <label for="city" class="col-sm-2 control-label">City</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="city" name="city" [(ngModel)]="user.address.city">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="street" class="col-sm-2 control-label">Street</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="street" name="street" [(ngModel)]="user.address.street">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="zipCode" class="col-sm-2 control-label">Zip Code</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="zipCode" name="zipCode" [(ngModel)]="user.address.zipCode">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <input type="submit" class="btn btn-success" [disabled]="!userForm.form.valid" value="Submit"/>
+          <button class="btn btn-danger" (click)="cancel.emit()">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!--
+    <div class="well">
+      <h1>debug</h1>
+      {{user|json}}
+      <h4>user.userName</h4>
+      <table class="table">
+        <tbody>
+          <tr><td>userNameInput.className</td><td>{{userNameInput.className}}</td></tr>
+          <tr><td>userNameField.valid</td><td>{{userNameField.valid}}</td></tr>
+          <tr><td>userNameField.invalid</td><td>{{userNameField.invalid}}</td></tr>
+          <tr><td>userNameField.dirty</td><td>{{userNameField.dirty}}</td></tr>
+          <tr><td>userNameField.touched</td><td>{{userNameField.touched}}</td></tr>
+          <tr><td>userNameField.pristine</td><td>{{userNameField.pristine}}</td></tr>
+        </tbody>
+      </table>
+    </div> -->

@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* https://www.fontsquirrel.com/fonts/blackjack */
+@import './fonts/black_jackregular/black_jackregular.css';
+
+h1 {
+  font-family: black_jackregular;
+}
+
+.main {
+  margin-top: 80px;
+}
+
+.navbar-brand {
+  background-image: url('./images/logo.png');
+  background-repeat: no-repeat;
+  background-position: 10px 10px;
+  height: 50px;
+  width: 140px;
+  font-size: 0px;
+}
+
+.table-no-border > tbody > tr > td,
+.table-no-border > tbody > tr > th,
+.table-no-border > tfoot > tr > td,
+.table-no-border > tfoot > tr > th,
+.table-no-border > thead > tr > td,
+.table-no-border > thead > tr > th {
+  border: none;
+}
+
+.spacer { height: 20px;}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}

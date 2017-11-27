@@ -1,0 +1,13 @@
+<table class="table table-condensed table-no-border" (click)="edit.emit()">
+  <tbody>
+    <tr>
+      <td>username</td><td>{{user.userName}}</td>
+    </tr>
+    <tr>
+      <td>Name</td><td>{{user.firstName}} {{user.lastName}}</td>
+    </tr>
+    <tr>
+      <td>Address</td><td>{{user.address?.street}} {{user.address?.zipCode}} {{user.address?.city}}</td>
+    </tr>
+  </tbody>
+</table>
